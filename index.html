@@ -1,0 +1,1342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meet Shah's Birthday Bash!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --primary: #3a5fcd;
+            --secondary: #2e86de;
+            --accent: #00d2d3;
+            --light: #f5f6fa;
+            --dark: #2f3640;
+            --gradient: linear-gradient(135deg, #3a5fcd 0%, #00d2d3 100%);
+            --box-shadow: 0 10px 30px rgba(58, 95, 205, 0.2);
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --party-blue: #3498db;
+            --party-teal: #00d2d3;
+            --party-navy: #2c3e50;
+            --text-color: #2f3640;
+            --text-light: #7f8c8d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', 'Segoe UI', sans-serif;
+            background: url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-1.2.1&auto=format&fit=crop&q=80&w=1920&h=1080') no-repeat center center fixed;
+            background-size: cover;
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+        
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--light);
+            opacity: 0.85;
+            z-index: -1;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes pulse {
+            0% { 
+                opacity: 0.2; 
+                transform: scale(0.7) rotate(0deg); 
+            }
+            50% { 
+                opacity: 0.8; 
+                transform: scale(1.1) rotate(5deg);
+                filter: brightness(1.2);
+            }
+            100% { 
+                opacity: 0.2; 
+                transform: scale(0.7) rotate(0deg);
+            }
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px 20px;
+            background: var(--gradient);
+            border-radius: 20px;
+            box-shadow: var(--box-shadow);
+            color: white;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+        
+        header::before, header::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: 0;
+        }
+        
+        header::before {
+            top: -100px;
+            left: -100px;
+        }
+        
+        header::after {
+            bottom: -100px;
+            right: -100px;
+        }
+        
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            margin: 15px 0;
+            font-weight: 300;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .subtitle::after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
+            bottom: -10px;
+            left: 20%;
+        }
+        
+        .tagline {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            display: inline-block;
+            backdrop-filter: blur(5px);
+        }
+        
+        .tagline-text {
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            color: rgba(255,255,255,0.9);
+            font-weight: 300;
+        }
+        
+        .emoji {
+            font-size: 2.5rem;
+            margin: 15px 0;
+            position: relative;
+            z-index: 1;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 35px 30px;
+            margin-bottom: 40px;
+            box-shadow: var(--box-shadow);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(108, 99, 255, 0.25);
+        }
+        
+        h2 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--primary);
+            margin-bottom: 25px;
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50%;
+            height: 3px;
+            background: var(--gradient);
+            border-radius: 3px;
+        }
+        
+        .details {
+            margin-bottom: 20px;
+        }
+        
+        .detail-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            transition: transform 0.2s ease;
+        }
+        
+        .detail-item:hover {
+            transform: translateX(5px);
+        }
+        
+        .detail-item i {
+            margin-right: 20px;
+            font-size: 1.5rem;
+            color: var(--secondary);
+            min-width: 30px;
+            text-align: center;
+            background: rgba(255, 101, 132, 0.15);
+            padding: 10px;
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(255, 101, 132, 0.2);
+        }
+        
+        #countdown {
+            display: flex;
+            justify-content: space-around;
+            margin: 35px 0;
+            text-align: center;
+            flex-wrap: wrap;
+        }
+        
+        .countdown-item {
+            background: var(--gradient);
+            color: white;
+            padding: 20px 15px;
+            border-radius: 15px;
+            min-width: 90px;
+            margin: 5px;
+            flex: 1;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .countdown-number {
+            font-size: 2.2rem;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        
+        .countdown-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+        
+        form {
+            margin-top: 25px;
+            position: relative;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--primary);
+            transition: transform 0.3s ease;
+        }
+        
+        .form-group:focus-within label {
+            transform: translateY(-3px);
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid rgba(108, 99, 255, 0.2);
+            border-radius: 10px;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        input:focus, select:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.2);
+            background: white;
+        }
+        
+        button {
+            background: var(--gradient);
+            color: white;
+            border: none;
+            padding: 16px 25px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            width: 100%;
+            font-family: 'Poppins', sans-serif;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            box-shadow: 0 8px 25px rgba(108, 99, 255, 0.4);
+        }
+        
+        button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(135deg, #ff6584 0%, #6c63ff 100%);
+            transition: width 0.5s ease;
+            z-index: -1;
+        }
+        
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(108, 99, 255, 0.6);
+        }
+        
+        button:hover::before {
+            width: 100%;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 30px 20px;
+            color: var(--dark);
+            font-size: 0.95rem;
+            position: relative;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: var(--gradient);
+            border-radius: 3px;
+        }
+        
+        footer p {
+            opacity: 0.9;
+        }
+
+        /* Floating Elements Container */
+        #floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+            overflow: hidden;
+        }
+
+        /* Party Elements Container */
+        .party-element {
+            position: absolute;
+            pointer-events: none;
+            z-index: 900;
+            opacity: 0;
+            will-change: transform;
+        }
+        
+        /* Realistic Balloons */
+        .balloon {
+            position: absolute;
+            width: 70px;
+            height: 85px;
+            background: radial-gradient(circle at 30% 30%, #fff, var(--balloon-color, #3498db) 30%, var(--balloon-shadow, #2471a3));
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            z-index: 1000;
+            cursor: pointer;
+            animation: 
+                floatBalloon var(--float-duration, 25s) var(--float-delay, 0s) var(--float-timing, cubic-bezier(0.4, 0, 0.2, 1)) infinite, 
+                swing 7s var(--swing-delay, 0s) ease-in-out infinite;
+            opacity: 0;
+            transform-origin: bottom center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: inset -10px -5px 15px rgba(0,0,0,0.1), 0 5px 15px rgba(0,0,0,0.15);
+            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.2));
+            will-change: transform, opacity, filter;
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+        
+        .balloon::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 40% 40%, rgba(255,255,255,0.9), rgba(255,255,255,0.5) 40%, rgba(255,255,255,0) 70%);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            top: 0;
+            left: 0;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+        
+        .balloon::after {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 12px;
+            background: #e1f5fe;
+            border-radius: 0 0 3px 3px;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+        }
+        
+        .balloon .string {
+            position: absolute;
+            width: 2px;
+            height: 120px;
+            background: linear-gradient(to bottom, 
+                rgba(200,200,200,0.8) 0%,
+                rgba(180,180,180,0.7) 30%,
+                rgba(160,160,160,0.6) 70%,
+                rgba(140,140,140,0.5) 100%
+            );
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            transform-origin: top center;
+            z-index: 1;
+            animation: stringSwing 5s ease-in-out infinite;
+            border-radius: 2px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+        
+        .balloon .string::before {
+            content: '';
+            position: absolute;
+            width: 6px;
+            height: 12px;
+            background: linear-gradient(135deg, #e0e0e0, #b0b0b0);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 0 0 3px 3px;
+            box-shadow: 0 2px 3px rgba(0,0,0,0.2);
+        }
+        
+        .balloon.popped {
+            animation: pop 0.8s cubic-bezier(0.36, 0.07, 0.19, 0.97) forwards;
+        }
+        
+        @keyframes swing {
+            0%, 100% { 
+                transform: rotate(-4deg);
+            }
+            25% {
+                transform: rotate(1deg);
+            }
+            50% {
+                transform: rotate(4deg);
+            }
+            75% {
+                transform: rotate(-1deg);
+            }
+            100% {
+                transform: rotate(-4deg);
+            }
+        }
+        
+        @keyframes stringSwing {
+            0%, 100% { transform: translateX(-50%) translateY(10px) rotate(-1deg); }
+            50% { transform: translateX(-50%) translateY(10px) rotate(1deg); }
+        }
+
+        @keyframes floatBalloon {
+            0% {
+                transform: translateY(calc(100vh + 50px)) scale(0.8) rotate(-5deg);
+                opacity: 0;
+            }
+            5% {
+                opacity: 0.8;
+            }
+            10% {
+                opacity: 1;
+                transform: translateY(calc(100vh - 50px)) scale(0.85) rotate(-3deg);
+            }
+            30% {
+                transform: translateY(calc(70vh)) scale(0.9) rotate(0deg);
+            }
+            70% {
+                transform: translateY(calc(30vh)) scale(1) rotate(2deg);
+            }
+            100% {
+                transform: translateY(-20vh) scale(1.05) rotate(5deg);
+                opacity: 0.8;
+            }
+        }
+        
+        @keyframes pop {
+            0% { 
+                transform: scale(1) rotate(0deg);
+                opacity: 1;
+                filter: blur(0);
+            }
+            20% {
+                transform: scale(1.1) rotate(5deg);
+                opacity: 0.9;
+            }
+            100% { 
+                transform: scale(0) rotate(45deg);
+                opacity: 0;
+                filter: blur(2px);
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+        
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Party Elements */
+        /* Removed floating emoji animations */
+        .confetti {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1>🎂 Meet's Birthday Bash! 🎂</h1>
+                <p class="subtitle">An Evening of Elegance & Excitement</p>
+                <div class="tagline">
+                    <span class="tagline-text">Creating Moments • Celebrating Life • Making Memories</span>
+                </div>
+            </div>
+        </header>
+        
+        <div class="card">
+            <h2>Countdown to the celebration!</h2>
+            <div id="countdown">
+                <div class="countdown-item" style="--animation-order: 0">
+                    <div class="countdown-number" id="days">0</div>
+                    <div class="countdown-label">Days</div>
+                </div>
+                <div class="countdown-item" style="--animation-order: 1">
+                    <div class="countdown-number" id="hours">0</div>
+                    <div class="countdown-label">Hours</div>
+                </div>
+                <div class="countdown-item" style="--animation-order: 2">
+                    <div class="countdown-number" id="minutes">0</div>
+                    <div class="countdown-label">Minutes</div>
+                </div>
+                <div class="countdown-item" style="--animation-order: 3">
+                    <div class="countdown-number" id="seconds">0</div>
+                    <div class="countdown-label">Seconds</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>Event Details</h2>
+            <div class="details">
+                <div class="detail-item">
+                    <p><i class="fas fa-user-circle"></i> Meet Shah's Birthday</p>
+                </div>
+                <div class="detail-item">
+                    <p><i class="fas fa-calendar-alt"></i> Date: June 24, 2025</p>
+                </div>
+                <div class="detail-item">
+                    <p><i class="fas fa-clock"></i> Time: 9:00 PM</p>
+                </div>
+                <div class="detail-item">
+                    <p><i class="fas fa-map-marker-alt"></i> Venue: 2001 N Beverly Plaza, Apt 125, Long Beach, CA</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="rsvp-container">
+            <div class="rsvp-card">
+                <div class="rsvp-header">
+                    <h2>RSVP Now</h2>
+                    <p>Let us know if you'll be joining the celebration!</p>
+                </div>
+                
+                <div class="rsvp-form">
+                    <div class="form-group">
+                        <div class="input-wrapper">
+                            <input type="text" id="rsvp-name" required>
+                            <label for="rsvp-name">Your Name</label>
+                            <div class="input-highlight"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="attendance-options">
+                        <div class="attending-option" data-attending="Yes">
+                            <div class="option-content">
+                                <span class="option-emoji">👍</span>
+                                <span class="option-text">I'll be there!</span>
+                            </div>
+                        </div>
+                        <div class="not-attending-option" data-attending="No">
+                            <div class="option-content">
+                                <span class="option-emoji">😢</span>
+                                <span class="option-text">Can't make it</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="whatsapp-note">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>Will open in WhatsApp to +1 (714) 987-8734</span>
+                </div>
+            </div>
+            
+            <style>
+                .rsvp-container {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    min-height: 100%;
+                    padding: 2rem;
+                }
+                
+                .rsvp-card {
+                    width: 100%;
+                    max-width: 500px;
+                    background: linear-gradient(145deg, #1a1a2e, #16213e);
+                    border-radius: 20px;
+                    padding: 2.5rem;
+                    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), 0 5px 15px rgba(0, 0, 0, 0.2);
+                    border: 1px solid rgba(255, 255, 255, 0.12);
+                    position: relative;
+                    overflow: hidden;
+                    color: #f0f0f0;
+                    margin: 0 auto;
+                    transition: all 0.5s ease;
+                }
+                
+                .rsvp-card::before {
+                    content: '';
+                    position: absolute;
+                    top: -50%;
+                    left: -50%;
+                    width: 200%;
+                    height: 200%;
+                    background: radial-gradient(circle, rgba(0,210,211,0.1) 0%, rgba(0,0,0,0) 70%);
+                    z-index: -1;
+                    opacity: 0.5;
+                    animation: rotate 20s linear infinite;
+                }
+                
+                @keyframes rotate {
+                    from { transform: rotate(0deg); }
+                    to { transform: rotate(360deg); }
+                }
+                
+                .rsvp-header {
+                    text-align: center;
+                    margin-bottom: 2rem;
+                    position: relative;
+                }
+                
+                .confetti {
+                    font-size: 3rem;
+                    margin-bottom: 1rem;
+                    display: inline-block;
+                    animation: bounce 2s infinite alternate;
+                }
+                
+                @keyframes bounce {
+                    from { transform: translateY(0); }
+                    to { transform: translateY(-10px); }
+                }
+                
+                .rsvp-header h2 {
+                    margin: 0 0 1rem;
+                    font-size: 2.4rem;
+                    color: #fff;
+                    font-weight: 700;
+                    text-align: center;
+                    background: linear-gradient(45deg, #00d2ff, #3a7bd5);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    background-clip: text;
+                    text-shadow: 0 2px 10px rgba(0, 210, 255, 0.3);
+                    letter-spacing: 1px;
+                }
+                
+                .rsvp-header p {
+                    margin: 0 0 2rem;
+                    color: rgba(255, 255, 255, 0.9);
+                    font-size: 1.1rem;
+                    line-height: 1.6;
+                    text-align: center;
+                    max-width: 90%;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+                
+                .form-group {
+                    margin-bottom: 1.5rem;
+                    position: relative;
+                }
+                
+                .input-group {
+                    position: relative;
+                    margin-bottom: 1.8rem;
+                }
+                
+                .input-wrapper input {
+                    width: 100%;
+                    padding: 0.8rem 0;
+                    font-size: 1rem;
+                    color: #fff;
+                    background: transparent;
+                    border: none;
+                    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+                    outline: none;
+                    transition: all 0.3s ease;
+                }
+                
+                .input-group label {
+                    position: absolute;
+                    left: 1rem;
+                    top: 1rem;
+                    color: rgba(255, 255, 255, 0.8);
+                    transition: all 0.3s ease;
+                    pointer-events: none;
+                    font-size: 0.9rem;
+                    font-weight: 500;
+                }
+                
+                .input-wrapper input:focus,
+                .input-wrapper input:not(:placeholder-shown) {
+                    border-bottom-color: transparent;
+                }
+                
+                .input-wrapper input:focus + label,
+                .input-wrapper input:not(:placeholder-shown) + label {
+                    top: 0;
+                    font-size: 0.8rem;
+                    color: #00d2d3;
+                }
+                
+                .input-highlight {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 0;
+                    height: 2px;
+                    background: linear-gradient(90deg, #00d2d3, #3a61cd);
+                    transition: width 0.4s ease;
+                }
+                
+                .input-wrapper input:focus ~ .input-highlight {
+                    width: 100%;
+                }
+                
+                .attendance-options {
+                    display: flex;
+                    gap: 1rem;
+                    margin-top: 2rem;
+                }
+                
+                .attending-option {
+                    flex: 1;
+                    padding: 1rem;
+                    border-radius: 10px;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    border: 2px solid #4CAF50;
+                    background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(76, 175, 80, 0.35));
+                    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.2);
+                }
+                
+                .not-attending-option {
+                    flex: 1;
+                    padding: 1rem;
+                    border-radius: 10px;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    border: 2px solid #f44336;
+                    background: linear-gradient(135deg, rgba(244, 67, 54, 0.15), rgba(244, 67, 54, 0.25));
+                    box-shadow: 0 4px 12px rgba(244, 67, 54, 0.2);
+                }
+                
+                .attending-option:hover {
+                    background: linear-gradient(135deg, rgba(76, 175, 80, 0.25), rgba(76, 175, 80, 0.5));
+                    transform: translateY(-2px);
+                    box-shadow: 0 8px 20px rgba(76, 175, 80, 0.3);
+                }
+                
+                .not-attending-option:hover {
+                    background: linear-gradient(135deg, rgba(244, 67, 54, 0.25), rgba(244, 67, 54, 0.4));
+                    transform: translateY(-2px);
+                    box-shadow: 0 8px 20px rgba(244, 67, 54, 0.3);
+                }
+                
+                .attending-option:active,
+                .not-attending-option:active {
+                    transform: translateY(1px);
+                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+                }
+                
+                .option-content {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 0.8rem;
+                    padding: 0.5rem 0;
+                }
+                
+                .option-emoji {
+                    font-size: 1.5rem;
+                    line-height: 1;
+                }
+                
+                .option-text {
+                    font-size: 1rem;
+                    font-weight: 600;
+                    color: #fff;
+                    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+                }
+                
+                .whatsapp-note {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 0.5rem;
+                    margin-top: 2rem;
+                    font-size: 0.9rem;
+                    color: rgba(255, 255, 255, 0.9);
+                    padding: 1.2rem;
+                    border-radius: 12px;
+                    background: rgba(37, 211, 102, 0.1);
+                    border: 1px solid rgba(37, 211, 102, 0.2);
+                    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+                    transition: all 0.3s ease;
+                }
+                
+                .whatsapp-note:hover {
+                    background: rgba(0, 0, 0, 0.35);
+                    transform: translateY(-1px);
+                }
+                
+                .whatsapp-note i {
+                    color: #25D366;
+                    font-size: 1.5rem;
+                    filter: drop-shadow(0 2px 4px rgba(37, 211, 102, 0.4));
+                    transition: transform 0.3s ease;
+                }
+                
+                .whatsapp-note:hover i {
+                    transform: scale(1.1);
+                }
+                
+                @media (max-width: 480px) {
+                    .rsvp-card {
+                        padding: 2rem 1.5rem;
+                    }
+                    
+                    .attendance-options {
+                        flex-direction: column;
+                        gap: 0.8rem;
+                    }
+                    
+                    .attending-option {
+                        padding: 1rem 0.5rem;
+                    }
+                }
+            </style>
+            
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    const nameInput = document.getElementById('rsvp-name');
+                    const attendanceOptions = document.querySelectorAll('input[name="attending"]');
+                    
+                    // Add floating label functionality
+                    nameInput.addEventListener('focus', function() {
+                        this.parentElement.classList.add('focused');
+                    });
+                    
+                    nameInput.addEventListener('blur', function() {
+                        if (!this.value) {
+                            this.parentElement.classList.remove('focused');
+                        }
+                    });
+                    
+                    // Handle attendance selection
+                    document.querySelectorAll('.attending-option, .not-attending-option').forEach(option => {
+                        option.addEventListener('click', function() {
+                            const name = nameInput.value.trim();
+                            const attending = this.getAttribute('data-attending');
+                            
+                            if (!name) {
+                                // Add shake animation and highlight to indicate required field
+                                nameInput.parentElement.style.animation = 'shake 0.5s';
+                                nameInput.style.borderBottomColor = '#f44336';
+                                nameInput.focus();
+                                
+                                // Show error message
+                                const errorMsg = document.createElement('div');
+                                errorMsg.className = 'error-message';
+                                errorMsg.textContent = 'Please enter your name first';
+                                nameInput.parentElement.appendChild(errorMsg);
+                                
+                                // Remove animation and error after delay
+                                setTimeout(() => {
+                                    nameInput.parentElement.style.animation = '';
+                                    const existingError = nameInput.parentElement.querySelector('.error-message');
+                                    if (existingError) {
+                                        existingError.remove();
+                                    }
+                                    nameInput.style.borderBottomColor = '';
+                                }, 2000);
+                                nameInput.focus();
+                                return;
+                            }
+                            
+                            // Create a properly formatted message without emojis
+                            // Make sure we get the latest value directly from the input
+                            const userName = document.getElementById('rsvp-name').value.trim();
+                            let messageText = '';
+                            
+                            // Log the name to console to verify it's captured correctly
+                            console.log('Name entered:', userName);
+                            
+                            if (attending === 'Yes') {
+                                messageText = `Hi! This is ${userName}. I will be attending Meet's birthday celebration!`;
+                            } else {
+                                messageText = `Hi! This is ${userName}. I can't make it to Meet's birthday celebration!`;
+                            }
+                            
+                            // Log the final message
+                            console.log('Final message:', messageText);
+                            
+                            // Add alert for debug to verify name and message
+                            alert('Debug: Name entered is ' + userName + '. Final message: ' + messageText + '. Check console for details.');
+                            
+                            // Use WhatsApp API with properly encoded text
+                            const whatsappURL = 'https://wa.me/17149878734?text=' + encodeURIComponent(messageText);
+                            window.open(whatsappURL, '_blank');
+                            
+                            // Reset form
+                            nameInput.value = '';
+                            nameInput.focus();
+                        });
+                    });
+                });
+                
+                // Add animations and error styling
+                const style = document.createElement('style');
+                style.textContent = `
+                    @keyframes shake {
+                        0%, 100% { transform: translateX(0); }
+                        10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+                        20%, 40%, 60%, 80% { transform: translateX(5px); }
+                    }
+                    
+                    .shake {
+                        animation: shake 0.5s;
+                    }
+                    
+                    .error-message {
+                        position: absolute;
+                        bottom: -20px;
+                        left: 0;
+                        color: #f44336;
+                        font-size: 0.8rem;
+                        animation: fadeIn 0.3s ease;
+                    }
+                    
+                    @keyframes fadeIn {
+                        from { opacity: 0; transform: translateY(-5px); }
+                        to { opacity: 1; transform: translateY(0); }
+                    }
+                    
+                    .input-wrapper input:focus {
+                        border-bottom-color: var(--accent);
+                    }
+                `;
+                document.head.appendChild(style);
+            </script>
+        </div>
+        
+        <footer>
+            <p>We can't wait to celebrate with you!</p>
+        </footer>
+    </div>
+
+    <div id="floating-elements"></div>
+
+    <script>
+        // Create floating elements
+        function createFloatingElements() {
+            const container = document.getElementById('floating-elements');
+            const emojis = ['🎯', '🎯', '🥂', '🎯', '🎯', '🎯', '🎯', '🎸', '🎧', '🎨', '⚽', '🎯']; // More focused emojis
+            
+            // Balloon colors with sophisticated gradients
+            const balloonColors = [
+                { main: '#3498db', highlight: '#2980b9', shadow: '#2471a3' },  // Blue
+                { main: '#2ecc71', highlight: '#27ae60', shadow: '#219653' },  // Green
+                { main: '#9b59b6', highlight: '#8e44ad', shadow: '#7d3c98' },  // Purple
+                { main: '#1abc9c', highlight: '#16a085', shadow: '#138d75' },  // Teal
+                { main: '#3498db', highlight: '#2980b9', shadow: '#2471a3' },  // Blue
+                { main: '#2e86de', highlight: '#2c3e50', shadow: '#1e272e' },  // Navy
+                { main: '#00d2d3', highlight: '#00a8b5', shadow: '#0097a7' },  // Cyan
+                { main: '#546de5', highlight: '#4a69bd', shadow: '#3c6382' },  // Royal Blue
+                { main: '#2d98da', highlight: '#227093', shadow: '#1b6ca8' },  // Dark Blue
+                { main: '#45aaf2', highlight: '#2d98da', shadow: '#1e88e5' },  // Light Blue
+                { main: '#26de81', highlight: '#20bf6b', shadow: '#16a085' },  // Green
+                { main: '#a55eea', highlight: '#8854d0', shadow: '#6c5ce7' }   // Light Purple
+            ];
+            
+            // Create celebration elements
+            createCelebrationElements(container, emojis);
+            
+            // Create balloons
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    const balloon = document.createElement('div');
+                    balloon.className = 'balloon';
+                    
+                    // Position balloons on both sides with more dynamic paths
+                    const side = Math.random() > 0.5 ? 'left' : 'right';
+                    const startPos = side === 'left' ? -150 : 150;
+                    const midPos = (Math.random() - 0.5) * 100; // Random middle position
+                    const endPos = side === 'left' ? 150 : -150;
+                    
+                    balloon.style.left = (side === 'left' ? -80 : 100) + 'px';
+                    balloon.style.top = (Math.random() * 40 + 5) + 'vh';
+                    balloon.style.setProperty('--mid-pos', midPos + 'px');
+                    
+                    // Random animation duration and delay with more variety
+                    const duration = Math.random() * 20 + 25;
+                    const delay = Math.random() * 8;
+                    const size = Math.random() * 0.6 + 0.7; // 0.7 to 1.3 scale
+                    
+                    // Set custom properties for animation with more dynamic values
+                    balloon.style.setProperty('--start-pos', startPos + 'px');
+                    balloon.style.setProperty('--mid-pos', midPos + 'px');
+                    balloon.style.setProperty('--end-pos', endPos + 'px');
+                    balloon.style.animationDuration = `${duration}s`;
+                    balloon.style.animationDelay = `${delay}s`;
+                    balloon.style.opacity = '1';
+                    balloon.style.transform = `scale(${size})`;
+                    balloon.style.zIndex = Math.floor(1000 + (1 - size) * 100); // Larger balloons in front
+                    
+                    // Random balloon color
+                    const color = balloonColors[Math.floor(Math.random() * balloonColors.length)];
+                    balloon.style.setProperty('--balloon-color', color.main);
+                    balloon.style.setProperty('--balloon-highlight', color.highlight);
+                    balloon.style.setProperty('--balloon-shadow', color.shadow);
+                    
+                    // Create and append string
+                    const string = document.createElement('div');
+                    string.className = 'string';
+                    balloon.appendChild(string);
+                    
+                    // Add click event for popping
+                    balloon.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        this.classList.add('popped');
+                        createMiniExplosion(this);
+                        setTimeout(() => this.remove(), 800);
+                    });
+                    
+                    container.appendChild(balloon);
+                }, i * 1000);
+            }
+            
+            // Emoji animations removed
+            
+            // Create confetti
+            for (let i = 0; i < 150; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.animationDelay = (Math.random() * 5) + 's';
+                    confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                    confetti.style.width = (Math.random() * 10 + 5) + 'px';
+                    confetti.style.height = (Math.random() * 10 + 5) + 'px';
+                    confetti.style.opacity = '0.8';
+                    container.appendChild(confetti);
+                }, i * 50);
+            }
+        }
+        
+        // Create mini explosion when balloon is popped
+        function createCelebrationElements(container, emojis) {
+            // Create floating emojis
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => {
+                    const emoji = document.createElement('div');
+                    emoji.className = 'party-element';
+                    emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                    
+                    // Random position and animation
+                    const size = Math.random() * 30 + 20; // 20px to 50px
+                    const duration = Math.random() * 10 + 15; // 15s to 25s
+                    const delay = Math.random() * 10;
+                    const side = Math.random() > 0.5 ? 'left' : 'right';
+                    const startX = side === 'left' ? 
+                        Math.random() * 20 - 50 : 
+                        Math.random() * 20 + 100;
+                    
+                    emoji.style.fontSize = `${size}px`;
+                    emoji.style.left = `${startX}%`;
+                    emoji.style.top = `${Math.random() * 100 + 100}%`;
+                    emoji.style.animation = `floatUp ${duration}s linear ${delay}s infinite`;
+                    emoji.style.opacity = '0.8';
+                    emoji.style.filter = 'drop-shadow(0 2px 4px rgba(0,0,0,0.2))';
+                    
+                    container.appendChild(emoji);
+                }, i * 300);
+            }
+            
+            // Create subtle sparkles
+            for (let i = 0; i < 30; i++) {
+                createSparkle(container);
+            }
+        }
+        
+        function createSparkle(container) {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'party-element';
+            sparkle.innerHTML = '✦';
+            
+            const size = Math.random() * 15 + 10;
+            const duration = Math.random() * 2 + 1;
+            const delay = Math.random() * 5;
+            const x = Math.random() * 100;
+            const y = Math.random() * 100;
+            
+            sparkle.style.fontSize = `${size}px`;
+            sparkle.style.left = `${x}%`;
+            sparkle.style.top = `${y}%`;
+            sparkle.style.animation = `pulse ${duration}s ease-in-out ${delay}s infinite`;
+            sparkle.style.opacity = '0';
+            sparkle.style.color = '#fff';
+            sparkle.style.textShadow = '0 0 8px var(--accent, #00d2d3)';
+            
+            container.appendChild(sparkle);
+            
+            // Randomly reposition sparkles
+            setInterval(() => {
+                if (Math.random() > 0.8) {
+                    sparkle.style.left = `${Math.random() * 100}%`;
+                    sparkle.style.top = `${Math.random() * 100}%`;
+                }
+            }, 3000);
+        }
+        
+        function createMiniExplosion(element) {
+            const container = document.getElementById('floating-elements');
+            const colors = ['#ff6b6b', '#4ecdc4', '#ffd700', '#ff9ff3', '#feca57', '#a1e9ff', '#ffb3ba', '#bae7b8'];
+            const rect = element.getBoundingClientRect();
+            
+            for (let i = 0; i < 25; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'confetti';
+                particle.style.left = (rect.left + rect.width / 2) + 'px';
+                particle.style.top = (rect.top + rect.height / 2) + 'px';
+                particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                particle.style.width = '6px';
+                particle.style.height = '6px';
+                particle.style.opacity = '1';
+                particle.style.animation = 'none';
+                
+                // Random direction
+                const angle = Math.random() * Math.PI * 2;
+                const velocity = 2 + Math.random() * 3;
+                const vx = Math.cos(angle) * velocity;
+                const vy = Math.sin(angle) * velocity;
+                
+                container.appendChild(particle);
+                
+                // Animate particle
+                let posX = rect.left + rect.width / 2;
+                let posY = rect.top + rect.height / 2;
+                let opacity = 1;
+                
+                const animateParticle = () => {
+                    posX += vx;
+                    posY += vy;
+                    opacity -= 0.02;
+                    
+                    particle.style.left = posX + 'px';
+                    particle.style.top = posY + 'px';
+                    particle.style.opacity = opacity;
+                    
+                    if (opacity > 0) {
+                        requestAnimationFrame(animateParticle);
+                    } else {
+                        particle.remove();
+                    }
+                };
+                
+                requestAnimationFrame(animateParticle);
+            }
+        }
+
+        // Countdown Timer
+        function updateCountdown() {
+            const targetDate = new Date('June 24, 2025 20:30:00').getTime();
+            const now = new Date().getTime();
+            const difference = targetDate - now;
+            
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').innerText = days;
+            document.getElementById('hours').innerText = hours;
+            document.getElementById('minutes').innerText = minutes;
+            document.getElementById('seconds').innerText = seconds;
+            
+            if (difference < 0) {
+                clearInterval(countdownInterval);
+                document.getElementById('countdown').innerHTML = '<div class="countdown-item" style="flex-basis: 100%"><div class="countdown-number">It\'s time!</div><div class="countdown-label">The party is today!</div></div>';
+            }
+        }
+        
+        // Update countdown every second
+        updateCountdown();
+        const countdownInterval = setInterval(updateCountdown, 1000);
+        
+        // Add touch feedback for mobile
+        const buttons = document.querySelectorAll('button');
+        buttons.forEach(button => {
+            button.addEventListener('touchstart', function() {
+                this.style.transform = 'scale(0.95)';
+            });
+            button.addEventListener('touchend', function() {
+                this.style.transform = 'scale(1.02)';
+            });
+            
+            // Add click animation for desktop
+            button.addEventListener('click', function() {
+                this.classList.add('animate__animated', 'animate__pulse');
+                setTimeout(() => {
+                    this.classList.remove('animate__animated', 'animate__pulse');
+                }, 1000);
+            });
+        });
+        
+        // Add input animation
+        const formInputs = document.querySelectorAll('input, select');
+        formInputs.forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.classList.add('focused');
+            });
+            input.addEventListener('blur', function() {
+                this.parentElement.classList.remove('focused');
+            });
+        });
+        
+        // Add confetti animation on form submit
+        const form = document.querySelector('form');
+        form.addEventListener('submit', function(e) {
+            // You would normally handle form submission here
+            // For demo purposes, let's show a visual effect
+            const formElements = this.elements;
+            const name = formElements.name.value;
+            const attending = formElements.attending.value;
+            
+            if (attending === 'yes') {
+                alert(`Thanks ${name}! We're excited to see you at Meet's birthday party!`);
+            } else {
+                alert(`We're sorry you can't make it to Meet's birthday party, ${name}. You'll be missed!`);
+            }
+        });
+    </script>
+    
+    <!-- 
+    DEPLOYMENT INSTRUCTIONS:
+    
+    1. NETLIFY DEPLOYMENT:
+       - Go to https://app.netlify.com/
+       - Sign up/login with your preferred method
+       - Drag and drop this HTML file to the Netlify dashboard
+       - Netlify will automatically deploy your site
+       - You can customize the domain in Site settings
+    
+    2. GITHUB PAGES DEPLOYMENT:
+       - Create a new repository on GitHub
+       - Upload this file as "index.html" to your repository
+       - Go to repository Settings > Pages
+       - Select your branch (usually "main") and save
+       - Your site will be published at https://[username].github.io/[repository-name]/
+    
+    BEFORE DEPLOYING:
+    1. Replace "https://formspree.io/f/yourFormID" with your actual Formspree form ID
+       - Sign up at https://formspree.io/
+       - Create a new form and copy the endpoint URL
+       - Replace the placeholder in the form action attribute
+    -->
+</body>
+</html>
